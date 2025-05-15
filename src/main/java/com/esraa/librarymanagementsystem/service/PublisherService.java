@@ -38,7 +38,7 @@ public class PublisherService {
         Optional<Publisher> existingPublisher = publisherRepo.findById(publisher.getId());
 
         if (existingPublisher.isPresent()) {
-            Publisher publish = existingPublisher.get();
+            Publisher publish = new Publisher();
             publish.setName(publisher.getName());
             publish.setEmail(publisher.getEmail());
             publish.setAddress(publisher.getAddress());

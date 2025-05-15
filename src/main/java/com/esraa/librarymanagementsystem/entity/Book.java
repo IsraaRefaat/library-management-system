@@ -1,17 +1,23 @@
 package com.esraa.librarymanagementsystem.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = {"authors", "categories", "transactions"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "book")
 public class Book {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
