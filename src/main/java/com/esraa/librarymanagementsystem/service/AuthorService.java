@@ -1,9 +1,9 @@
 package com.esraa.librarymanagementsystem.service;
 
+import com.esraa.librarymanagementsystem.dto.AuthorDTO;
 import com.esraa.librarymanagementsystem.entity.Author;
-import com.esraa.librarymanagementsystem.entity.Publisher;
 import com.esraa.librarymanagementsystem.repository.AuthorRepo;
-import com.esraa.librarymanagementsystem.repository.PublisherRepo;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,22 +35,16 @@ public class AuthorService {
         return new ResponseEntity<>(author,HttpStatus.OK);
     }
 
-    public ResponseEntity<?> updateAuthor(Author author) {
-        Optional<Author> existAuthor = authorRepo.findById(author.getId());
+    public ResponseEntity<?> updateAuthor(Integer id, AuthorDTO author) {
+        return authorRepo.findById(id).map(auth -> {
+            if (author.getName() != null) auth.setName(author.getName());
+            if (author.getEmail() != null) auth.setEmail(author.getEmail());
+            if (author.getPhone() != null) auth.setPhone(author.getPhone());
 
-        if (existAuthor.isPresent()) {
-            Author auth = new Author();
-            auth.setName(author.getName());
-            auth.setEmail(author.getEmail());
-            auth.setPhone(author.getPhone());
-            auth.setBooks(author.getBooks());
+            Author updatedAuthor = authorRepo.save(auth);
+            return ResponseEntity.ok(updatedAuthor);
+        }).orElseGet(() -> ResponseEntity.notFound().build());
 
-            authorRepo.save(auth);
-
-            return ResponseEntity.ok(author);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Author not found");
-        }
     }
 
     public ResponseEntity<?> deleteAuthor(Integer id) {

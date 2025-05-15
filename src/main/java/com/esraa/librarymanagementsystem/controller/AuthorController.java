@@ -1,5 +1,6 @@
 package com.esraa.librarymanagementsystem.controller;
 
+import com.esraa.librarymanagementsystem.dto.AuthorDTO;
 import com.esraa.librarymanagementsystem.entity.Author;
 import com.esraa.librarymanagementsystem.entity.Publisher;
 import com.esraa.librarymanagementsystem.service.AuthorService;
@@ -30,9 +31,9 @@ public class AuthorController {
 
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
-    @PutMapping("update")
-    public ResponseEntity<?> updateAuthor(@RequestBody Author author) {
-        return authorService.updateAuthor(author);
+    @PatchMapping("update/{id}")
+    public ResponseEntity<?> updateAuthor(@PathVariable Integer id,@RequestBody AuthorDTO author) {
+        return authorService.updateAuthor(id,author);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
