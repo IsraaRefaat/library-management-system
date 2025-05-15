@@ -6,6 +6,8 @@ import com.esraa.librarymanagementsystem.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,6 +19,15 @@ public class AdminService {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtService jwtService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     private ResponseEntity<List<UserDTO>> getListResponseEntity(List<User> users) {
@@ -53,21 +64,25 @@ public class AdminService {
     }
 
     public ResponseEntity<?> addUSer(User user) {
-        userRepo.save(user);
-        return new ResponseEntity<>(HttpStatus.OK);
+        user.setPassword(passwordEncoder.encode(user.getPassword())); // Encrypt password
+        User savedUser = userRepo.save(user);
+
+        // Convert to DTO (excluding password)
+        UserDTO userDTO = new UserDTO(savedUser.getId(), savedUser.getUsername());
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 
-    public ResponseEntity<?> updateUser(User user) {
+    public ResponseEntity<?> updateUser(UserDTO user) {
         Optional<User> existingUser = userRepo.findById(user.getId());
 
         if (existingUser.isPresent()) {
             User usr = existingUser.get();
-
             user.setUsername(user.getUsername());
-            user.setPassword(user.getPassword());
             user.setRole(user.getRole());
-            userRepo.save(user);
+
+            userRepo.save(usr);
 
             return ResponseEntity.ok(existingUser);
         } else {

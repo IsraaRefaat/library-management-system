@@ -50,7 +50,7 @@ public class AdminController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("update")
-    public ResponseEntity<?> updateUser(@RequestBody User user) {
+    public ResponseEntity<?> updateUser(@RequestBody UserDTO user) {
         return adminService.updateUser(user);
     }
 

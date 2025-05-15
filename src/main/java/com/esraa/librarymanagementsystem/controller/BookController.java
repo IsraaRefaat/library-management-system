@@ -14,7 +14,7 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    BookService bookService;
+    private BookService bookService;
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
     @GetMapping("allBooks")
@@ -22,7 +22,7 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
-    @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('LIBRARIAN')")
     @GetMapping("book/{id}")
     public ResponseEntity<Book> getBook(@PathVariable("id") int id) {
         return bookService.getBook(id);
