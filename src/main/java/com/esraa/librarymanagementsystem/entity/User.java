@@ -21,8 +21,9 @@ public class User {
     private String username;
     private String email;
     private String password;
+    @Column(name = "role", columnDefinition = "user_role")
     @Enumerated(EnumType.STRING)
-    @Column(name = "role")
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private UserRole role;;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

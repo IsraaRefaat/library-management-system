@@ -33,21 +33,21 @@ public class AdminService {
 
 
     public ResponseEntity<List<UserDTO>> getAdmins() {
-        List<User> users = userRepo.findByRole("ADMIN");
+        List<User> users = userRepo.findByRole(User.UserRole.ADMIN);
 
         return getListResponseEntity(users);
     }
 
 
     public ResponseEntity<List<UserDTO>> getLibrarians() {
-        List<User> users = userRepo.findByRole("LIBRARIAN");
+        List<User> users = userRepo.findByRole(User.UserRole.LIBRARIAN);
 
         return getListResponseEntity(users);
     }
 
 
     public ResponseEntity<List<UserDTO>> getStaff() {
-        List<User> users = userRepo.findByRole("STAFF");
+        List<User> users = userRepo.findByRole(User.UserRole.STAFF);
 
         return getListResponseEntity(users);
     }
