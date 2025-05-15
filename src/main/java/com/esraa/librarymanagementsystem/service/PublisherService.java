@@ -1,6 +1,9 @@
 package com.esraa.librarymanagementsystem.service;
 
 
+import com.esraa.librarymanagementsystem.dto.AuthorDTO;
+import com.esraa.librarymanagementsystem.dto.PublisherDto;
+import com.esraa.librarymanagementsystem.entity.Author;
 import com.esraa.librarymanagementsystem.entity.Publisher;
 import com.esraa.librarymanagementsystem.repository.PublisherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,22 +37,16 @@ public class PublisherService {
         return new ResponseEntity<>(publisher,HttpStatus.OK);
     }
 
-    public ResponseEntity<?> updatePublisher(Publisher publisher) {
-        Optional<Publisher> existingPublisher = publisherRepo.findById(publisher.getId());
+    public ResponseEntity<?> updatePublisher(Integer id, PublisherDto publisher) {
+        return publisherRepo.findById(id).map(publish -> {
+            if (publisher.getName() != null) publish.setName(publish.getName());
+            if (publisher.getEmail() != null) publish.setEmail(publisher.getEmail());
+            if (publisher.getPhone() != null) publish.setPhone(publisher.getPhone());
 
-        if (existingPublisher.isPresent()) {
-            Publisher publish = new Publisher();
-            publish.setName(publisher.getName());
-            publish.setEmail(publisher.getEmail());
-            publish.setAddress(publisher.getAddress());
-            publish.setPhone(publisher.getPhone());
-            publish.setBooks(publisher.getBooks());
-            publisherRepo.save(publish);
+            Publisher updatePublisher = publisherRepo.save(publish);
+            return ResponseEntity.ok(updatePublisher);
+        }).orElseGet(() -> ResponseEntity.notFound().build());
 
-            return ResponseEntity.ok(existingPublisher.get());
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Publisher not found");
-        }
     }
 
     public ResponseEntity<?> deletePublisher(Integer id) {

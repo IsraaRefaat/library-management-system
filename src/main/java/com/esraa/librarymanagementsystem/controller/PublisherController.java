@@ -1,6 +1,7 @@
 package com.esraa.librarymanagementsystem.controller;
 
 
+import com.esraa.librarymanagementsystem.dto.PublisherDto;
 import com.esraa.librarymanagementsystem.entity.Publisher;
 import com.esraa.librarymanagementsystem.service.PublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,9 @@ public class PublisherController {
 
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
-    @PutMapping("update")
-    public ResponseEntity<?> updatePublisher(@RequestBody Publisher publisher) {
-        return publisherService.updatePublisher(publisher);
+    @PatchMapping("update/{id}")
+    public ResponseEntity<?> updatePublisher(@PathVariable Integer id,@RequestBody PublisherDto publisher) {
+        return publisherService.updatePublisher(id, publisher);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
