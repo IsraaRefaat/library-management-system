@@ -18,6 +18,17 @@ public class Category {
     private String name;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
     @ManyToMany(mappedBy = "categories")
     private Set<Book> books = new HashSet<>();
 

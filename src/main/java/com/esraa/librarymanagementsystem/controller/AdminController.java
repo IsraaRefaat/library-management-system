@@ -9,7 +9,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("admin")
@@ -17,6 +16,7 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
 
     @PreAuthorize("hasRole('ADMIM')")
     @GetMapping("admin")
@@ -31,10 +31,33 @@ public class AdminController {
     }
 
     @PreAuthorize("hasRole('ADMIM')")
-    @PostMapping("librarian")
-    public ResponseEntity<Optional<User>> addLibrarian(@RequestBody User user) {
-        return adminService.addLibrarian(user);
+    @GetMapping("staff")
+    public ResponseEntity<List<UserDTO>> getStaff() {
+        return adminService.getStaff();
     }
 
+    @PreAuthorize("hasRole('ADMIM')")
+    @PostMapping("librarian")
+    public ResponseEntity<?> addLibrarian(@RequestBody User user) {
+        return adminService.addUSer(user);
+    }
+
+    @PreAuthorize("hasRole('ADMIM')")
+    @PostMapping("staff")
+    public ResponseEntity<?> addStaff(@RequestBody User user) {
+        return adminService.addUSer(user);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("update")
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        return adminService.updateUser(user);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
+        return adminService.deleteUser(id);
+    }
 
 }

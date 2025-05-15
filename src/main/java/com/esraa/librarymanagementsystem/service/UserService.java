@@ -12,8 +12,6 @@ public class UserService {
     @Autowired
     UserRepo repo;
 
-
-
     public User saveUser(User user) {
         return repo.save(user);
     }

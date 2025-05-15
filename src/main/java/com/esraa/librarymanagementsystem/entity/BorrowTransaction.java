@@ -24,6 +24,17 @@ public class BorrowTransaction {
     private User borrowByUser;
     private LocalDateTime borrowDate;
     private LocalDateTime returnDate;
+
+    @PrePersist
+    protected void onCreate() {
+        this.borrowDate = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.returnDate = LocalDateTime.now();
+    }
+
     private String status;
     private String notes;
 }

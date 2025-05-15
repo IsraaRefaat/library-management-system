@@ -52,13 +52,37 @@ public class AdminService {
         return getListResponseEntity(users);
     }
 
-    public ResponseEntity<Optional<User>> addLibrarian(User user) {
+    public ResponseEntity<?> addUSer(User user) {
         userRepo.save(user);
-        return new ResponseEntity<>(userRepo.findById(user.getId()), HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
+    public ResponseEntity<?> updateUser(User user) {
+        Optional<User> existingUser = userRepo.findById(user.getId());
 
+        if (existingUser.isPresent()) {
+            User usr = existingUser.get();
 
+            user.setUsername(user.getUsername());
+            user.setPassword(user.getPassword());
+            user.setRole(user.getRole());
+            userRepo.save(user);
 
+            return ResponseEntity.ok(existingUser);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+    }
+
+    public ResponseEntity<?> deleteUser(Integer id) {
+        Optional<User> usr = userRepo.findById(id);
+
+        if (usr.isPresent()) {
+            userRepo.deleteById(id);
+            return ResponseEntity.status(HttpStatus.OK).body("User deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+    }
 }
