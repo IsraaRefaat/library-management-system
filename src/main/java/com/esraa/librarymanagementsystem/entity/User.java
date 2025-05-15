@@ -2,6 +2,9 @@ package com.esraa.librarymanagementsystem.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.Type;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,8 +22,8 @@ public class User {
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
-    @Column(name = "role", columnDefinition = "user_role")
-    private UserRole role;
+    @Column(name = "role")
+    private UserRole role;;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     @OneToMany(mappedBy = "borrowByUser")
