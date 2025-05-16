@@ -41,8 +41,7 @@ library-management-system/
 ├── src/
 ├── db/
 │   ├── schema.sql
-│   ├── sample_data.sql
-│   └── erd.png
+│   └── sample_data.sql
 ├── postman/
 │   └── library-management-system.postman_collection.json
 ├── pom.xml
