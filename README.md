@@ -117,7 +117,7 @@ postman/library-management-system.postman_collection.json
 
 ## 📊 Database ERD
 
-![ERD](db/erd.png)
+![ERD](https://github.com/IsraaRefaat/library-management-system/blob/main/db/ERD.png)
 
 ---
 
