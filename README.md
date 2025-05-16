@@ -24,7 +24,7 @@ A complete Spring Boot application to manage a digital library. This system supp
 
 ## 🛠 Technologies
 
-* Java 17
+* Java 21
 * Spring Boot 3+
 * Spring Data JPA
 * Spring Security
