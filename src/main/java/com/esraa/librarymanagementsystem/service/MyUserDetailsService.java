@@ -28,7 +28,6 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(name);
         }
 
-        // Map UserRole to Spring Security authority
         Set<GrantedAuthority> authorities = Set.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
 
         return new org.springframework.security.core.userdetails.User(

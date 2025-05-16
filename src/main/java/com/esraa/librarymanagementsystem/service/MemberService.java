@@ -1,21 +1,18 @@
 package com.esraa.librarymanagementsystem.service;
 
 import com.esraa.librarymanagementsystem.dto.MemberDto;
-import com.esraa.librarymanagementsystem.dto.PublisherDto;
 import com.esraa.librarymanagementsystem.entity.Member;
-import com.esraa.librarymanagementsystem.entity.Publisher;
 import com.esraa.librarymanagementsystem.repository.MemberRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
-public class MemberService {
+public class MemberService implements MemberServiceI{
 
 
     @Autowired

@@ -1,9 +1,7 @@
 package com.esraa.librarymanagementsystem.service;
 
 
-import com.esraa.librarymanagementsystem.dto.AuthorDTO;
 import com.esraa.librarymanagementsystem.dto.PublisherDto;
-import com.esraa.librarymanagementsystem.entity.Author;
 import com.esraa.librarymanagementsystem.entity.Publisher;
 import com.esraa.librarymanagementsystem.repository.PublisherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PublisherService {
+public class PublisherService implements PublisherServiceI{
 
     @Autowired
     private PublisherRepo publisherRepo;

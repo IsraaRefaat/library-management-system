@@ -3,7 +3,7 @@ package com.esraa.librarymanagementsystem.controller;
 
 import com.esraa.librarymanagementsystem.dto.PublisherDto;
 import com.esraa.librarymanagementsystem.entity.Publisher;
-import com.esraa.librarymanagementsystem.service.PublisherService;
+import com.esraa.librarymanagementsystem.service.PublisherServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class PublisherController {
 
     @Autowired
-    private PublisherService publisherService;
+    private PublisherServiceI publisherService;
 
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")

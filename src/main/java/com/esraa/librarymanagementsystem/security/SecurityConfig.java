@@ -53,11 +53,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/user/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/book/**").hasAnyRole("ADMIN","LIBRARIAN")
+                        .requestMatchers("/borrow/**").hasAnyRole("ADMIN","LIBRARIAN")
+                        .requestMatchers("/books/**").hasAnyRole("ADMIN","LIBRARIAN")
                         .requestMatchers("/author/**").hasAnyRole("ADMIN","LIBRARIAN")
                         .requestMatchers("/publisher/**").hasAnyRole("ADMIN","LIBRARIAN")
+                        .requestMatchers("/member/**").hasAnyRole("ADMIN","LIBRARIAN")
                         .requestMatchers("/category/**").hasAnyRole("ADMIN","LIBRARIAN")
-                        .requestMatchers("/staff/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
 

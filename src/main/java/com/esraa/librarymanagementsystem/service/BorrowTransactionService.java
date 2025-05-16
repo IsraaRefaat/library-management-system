@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class BorrowTransactionService {
+public class BorrowTransactionService implements BorrowTransactionServiceI{
 
     @Autowired
     private BorrowTransactionRepo transactionRepo;

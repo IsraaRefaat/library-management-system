@@ -2,8 +2,7 @@ package com.esraa.librarymanagementsystem.controller;
 
 import com.esraa.librarymanagementsystem.dto.AuthorDTO;
 import com.esraa.librarymanagementsystem.entity.Author;
-import com.esraa.librarymanagementsystem.entity.Publisher;
-import com.esraa.librarymanagementsystem.service.AuthorService;
+import com.esraa.librarymanagementsystem.service.AuthorServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 public class AuthorController {
 
     @Autowired
-    private AuthorService authorService;
+    private AuthorServiceI authorService;
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
-    @GetMapping("author")
+    @GetMapping
     public ResponseEntity<?> getAuthors() {
         return authorService.getAllAuthors();
     }

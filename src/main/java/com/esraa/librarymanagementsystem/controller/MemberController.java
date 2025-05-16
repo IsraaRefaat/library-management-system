@@ -2,7 +2,7 @@ package com.esraa.librarymanagementsystem.controller;
 
 import com.esraa.librarymanagementsystem.dto.MemberDto;
 import com.esraa.librarymanagementsystem.entity.Member;
-import com.esraa.librarymanagementsystem.service.MemberService;
+import com.esraa.librarymanagementsystem.service.MemberServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController {
 
     @Autowired
-    private MemberService memberService;
+    private MemberServiceI memberService;
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
     @GetMapping

@@ -1,9 +1,8 @@
 package com.esraa.librarymanagementsystem.controller;
 
-import com.esraa.librarymanagementsystem.dto.UserDTO;
+
 import com.esraa.librarymanagementsystem.entity.User;
 import com.esraa.librarymanagementsystem.service.JwtService;
-import com.esraa.librarymanagementsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -31,18 +29,7 @@ public class UserController {
     private JwtService jwtService;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;  // Inject the encoder bean
-
-    @PostMapping("register")
-    public ResponseEntity<UserDTO> register(@RequestBody User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword())); // Encrypt password
-        User savedUser = userService.saveUser(user);
-
-        // Convert to DTO (excluding password)
-        UserDTO userDTO = new UserDTO(savedUser.getId(), savedUser.getUsername());
-
-        return new ResponseEntity<>(userDTO, HttpStatus.CREATED);
-    }
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {

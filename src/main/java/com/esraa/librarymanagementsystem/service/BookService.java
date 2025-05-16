@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class BookService {
+public class BookService implements BookServiceI {
 
     @Autowired
     private BookRepo bookRepo;

@@ -1,7 +1,7 @@
 package com.esraa.librarymanagementsystem.controller;
 
 import com.esraa.librarymanagementsystem.entity.Book;
-import com.esraa.librarymanagementsystem.service.BookService;
+import com.esraa.librarymanagementsystem.service.BookServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("book")
+@RequestMapping("books")
 public class BookController {
 
     @Autowired
-    private BookService bookService;
+    private BookServiceI bookService;
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
-    @GetMapping("allBooks")
+    @GetMapping
     public ResponseEntity<List<Book>> getAllBooks() {
         return bookService.getAllBooks();
     }
 
     @PreAuthorize("hasRole('ADMIN') or hasRole('LIBRARIAN')")
-    @GetMapping("book/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Book> getBook(@PathVariable("id") int id) {
         return bookService.getBook(id);
     }

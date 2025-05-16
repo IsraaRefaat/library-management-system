@@ -2,8 +2,7 @@ package com.esraa.librarymanagementsystem.controller;
 
 import com.esraa.librarymanagementsystem.dto.BorrowTransactionDto;
 import com.esraa.librarymanagementsystem.entity.BorrowTransaction;
-import com.esraa.librarymanagementsystem.service.BorrowTransactionService;
-import lombok.RequiredArgsConstructor;
+import com.esraa.librarymanagementsystem.service.BorrowTransactionServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,7 +14,7 @@ import java.util.List;
 public class BorrowTransactionController {
 
     @Autowired
-    private BorrowTransactionService borrowTransactionService;
+    private BorrowTransactionServiceI borrowTransactionService;
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
     @PostMapping

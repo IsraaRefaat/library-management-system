@@ -2,7 +2,7 @@ package com.esraa.librarymanagementsystem.controller;
 
 import com.esraa.librarymanagementsystem.dto.UserDTO;
 import com.esraa.librarymanagementsystem.entity.User;
-import com.esraa.librarymanagementsystem.service.AdminService;
+import com.esraa.librarymanagementsystem.service.AdminServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,7 +15,7 @@ import java.util.List;
 public class AdminController {
 
     @Autowired
-    private AdminService adminService;
+    private AdminServiceI adminService;
 
 
     @PreAuthorize("hasRole('ADMIM')")
@@ -49,9 +49,9 @@ public class AdminController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("update")
-    public ResponseEntity<?> updateUser(@RequestBody UserDTO user) {
-        return adminService.updateUser(user);
+    @PutMapping("update/{id}")
+    public ResponseEntity<?> updateUser(@PathVariable Integer id, @RequestBody UserDTO user) {
+        return adminService.updateUser(id,user);
     }
 
     @PreAuthorize("hasRole('ADMIN')")

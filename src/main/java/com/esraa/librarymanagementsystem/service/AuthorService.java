@@ -3,7 +3,6 @@ package com.esraa.librarymanagementsystem.service;
 import com.esraa.librarymanagementsystem.dto.AuthorDTO;
 import com.esraa.librarymanagementsystem.entity.Author;
 import com.esraa.librarymanagementsystem.repository.AuthorRepo;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AuthorService {
+public class AuthorService implements AuthorServiceI{
 
     @Autowired
     private AuthorRepo authorRepo;
