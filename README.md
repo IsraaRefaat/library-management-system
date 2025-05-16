@@ -94,7 +94,7 @@ postman/library-management-system.postman_collection.json
 
 ---
 
-## 🛡 Security (in progress)
+## 🛡 Security
 
 * ✅ Basic Auth working
 * 🔜 JWT Authentication & Role-based Authorization
