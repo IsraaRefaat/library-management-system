@@ -7,7 +7,7 @@ A complete Spring Boot application to manage a digital library. This system supp
 ## 🚀 Features
 
 * **User Roles**: `ADMIN`, `LIBRARIAN`, `STAFF`, `MEMBER`
-* **Authentication**: Basic Auth (JWT coming soon)
+* **Authentication**: Basic Auth, JWT
 * **Book Management** with multiple authors and hierarchical categories
 * **Borrowing System** with return tracking
 * **CRUD Operations**:
