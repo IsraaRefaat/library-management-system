@@ -1,0 +1,1364 @@
+{
+	"info": {
+		"_postman_id": "873f93ab-c15e-4086-9d48-aa3108e8beb8",
+		"name": "library-management-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41352369"
+	},
+	"item": [
+		{
+			"name": "admin-curd",
+			"item": [
+				{
+					"name": "get-admins",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-librarians",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/librarian",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"librarian"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-staff",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/staff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"staff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-librarian",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"username\": \"ali\",\r\n        \"email\": \"ali@example.com\",\r\n        \"password\": \"alii123\",\r\n        \"role\": \"LIBRARIAN\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/librarian",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"librarian"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-staff",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"username\": \"Sara\",\r\n        \"email\": \"sara@example.com\",\r\n        \"password\": \"sara123\",\r\n        \"role\": \"STAFF\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/staff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"staff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-librarian",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 8,\r\n        \"username\": \"librarian\",\r\n        \"email\": \"librarian@example.com\",\r\n        \"password\": \"lib1234\",\r\n        \"role\": \"LIBRARIAN\",\r\n        \"createdAt\": \"2025-05-15T18:03:24.356573\",\r\n        \"updatedAt\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-staff",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 7,\r\n        \"username\": \"Ali\",\r\n        \"email\": \"ali@example.com\",\r\n        \"password\": \"ali124\",\r\n        \"role\": \"STAFF\",\r\n        \"createdAt\": \"2025-05-15T17:23:00.481168\",\r\n        \"updatedAt\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-librarian",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"username\": \"lib\",\r\n        \"email\": \"librarian@example.com\",\r\n        \"password\": \"lib123\",\r\n        \"role\": \"LIBRARIAN\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/delete/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"delete",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-staff",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"username\": \"lib\",\r\n        \"email\": \"librarian@example.com\",\r\n        \"password\": \"lib123\",\r\n        \"role\": \"LIBRARIAN\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "book-curd",
+			"item": [
+				{
+					"name": "get-books-admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"username\": \"lib\",\r\n        \"email\": \"librarian@example.com\",\r\n        \"password\": \"lib123\",\r\n        \"role\": \"LIBRARIAN\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/book/allBooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"allBooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-books-librarian",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "sami123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "sami",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-books-staff",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "ahmed123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ahmed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-by-id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/books/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Algorithms\",\r\n  \"isbn\": \"978013235077\",\r\n  \"edition\": 5,\r\n  \"publishYear\": 500,\r\n  \"language\": \"English\",\r\n  \"summary\": \"A handbook of Algorithms.\",\r\n  \"cover_image_url\": \"https://example.com/images/alg.jpg\",\r\n  \"publisher\": { \"id\": 2 },\r\n  \"categories\": [ { \"id\": 2 } ],\r\n  \"authors\": [ { \"id\": 1 } ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/books/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Design Patterns in Java\",\r\n  \"isbn\": \"97801323508433\",\r\n  \"edition\": 2,\r\n  \"publishYear\": 2023,\r\n  \"language\": \"English\",\r\n  \"summary\": \"An updated handbook of design patterns with new examples.\",\r\n  \"cover_image_url\": \"https://example.com/images/updated-design-pattern.jpg\",\r\n  \"publisher\": { \"id\": 1 },\r\n  \"categories\": [ { \"id\": 1 } ],\r\n  \"authors\": [ { \"id\": 1 } ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/book/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Design Patterns in Java\",\r\n  \"isbn\": \"97801323508433\",\r\n  \"edition\": 2,\r\n  \"publishYear\": 2023,\r\n  \"language\": \"English\",\r\n  \"summary\": \"An updated handbook of design patterns with new examples.\",\r\n  \"cover_image_url\": \"https://example.com/images/updated-design-pattern.jpg\",\r\n  \"publisher\": { \"id\": 1 },\r\n  \"categories\": [ { \"id\": 1 } ],\r\n  \"authors\": [ { \"id\": 1 } ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/book/search/design",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"search",
+								"design"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Design Patterns in Java\",\r\n  \"isbn\": \"97801323508433\",\r\n  \"edition\": 2,\r\n  \"publishYear\": 2023,\r\n  \"language\": \"English\",\r\n  \"summary\": \"An updated handbook of design patterns with new examples.\",\r\n  \"cover_image_url\": \"https://example.com/images/updated-design-pattern.jpg\",\r\n  \"publisher\": { \"id\": 1 },\r\n  \"categories\": [ { \"id\": 1 } ],\r\n  \"authors\": [ { \"id\": 1 } ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/book/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "publisher-curd",
+			"item": [
+				{
+					"name": "add-publisher",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"O'Reilly Media\",\r\n  \"email\": \"info@oreilly.com\",\r\n  \"phone\": \"+1234567890\",\r\n  \"address\": \"1005 Gravenstein Highway North, Sebastopol, CA\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/publisher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-publishers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Design Patterns in Java\",\r\n  \"isbn\": \"97801323508433\",\r\n  \"edition\": 2,\r\n  \"publishYear\": 2023,\r\n  \"language\": \"English\",\r\n  \"summary\": \"An updated handbook of design patterns with new examples.\",\r\n  \"cover_image_url\": \"https://example.com/images/updated-design-pattern.jpg\",\r\n  \"publisher\": { \"id\": 1 },\r\n  \"categories\": [ { \"id\": 1 } ],\r\n  \"authors\": [ { \"id\": 1 } ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/publisher/publisher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher",
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-publisher",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"+1234567899\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/publisher/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-publisher",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"+1234567899\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/publisher/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category-curd",
+			"item": [
+				{
+					"name": "add-category",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Software Engineering\",\r\n  \"parent\": {\r\n    \"id\": 1\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/category/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Design Patterns in Java\",\r\n  \"isbn\": \"97801323508433\",\r\n  \"edition\": 2,\r\n  \"publishYear\": 2023,\r\n  \"language\": \"English\",\r\n  \"summary\": \"An updated handbook of design patterns with new examples.\",\r\n  \"cover_image_url\": \"https://example.com/images/updated-design-pattern.jpg\",\r\n  \"publisher\": { \"id\": 1 },\r\n  \"categories\": [ { \"id\": 1 } ],\r\n  \"authors\": [ { \"id\": 1 } ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/category/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "author-curd",
+			"item": [
+				{
+					"name": "add-author",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Robert C. Martin\",\r\n  \"email\": \"unclebob@example.com\",\r\n  \"phone\": \"0123456789\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/author/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-author",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Design Patterns in Java\",\r\n  \"isbn\": \"97801323508433\",\r\n  \"edition\": 2,\r\n  \"publishYear\": 2023,\r\n  \"language\": \"English\",\r\n  \"summary\": \"An updated handbook of design patterns with new examples.\",\r\n  \"cover_image_url\": \"https://example.com/images/updated-design-pattern.jpg\",\r\n  \"publisher\": { \"id\": 1 },\r\n  \"categories\": [ { \"id\": 1 } ],\r\n  \"authors\": [ { \"id\": 1 } ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/author/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-author",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"0123456788\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/author/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-author",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Design Patterns in Java\",\r\n  \"isbn\": \"97801323508433\",\r\n  \"edition\": 2,\r\n  \"publishYear\": 2023,\r\n  \"language\": \"English\",\r\n  \"summary\": \"An updated handbook of design patterns with new examples.\",\r\n  \"cover_image_url\": \"https://example.com/images/updated-design-pattern.jpg\",\r\n  \"publisher\": { \"id\": 1 },\r\n  \"categories\": [ { \"id\": 1 } ],\r\n  \"authors\": [ { \"id\": 1 } ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/author/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "borrow-book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "sami123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "sami",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookId\": 2,\r\n  \"memberId\": 1,\r\n  \"userId\": 2,\r\n  \"notes\": \"Handled by librarian sami\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/borrow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"borrow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "return-book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "sami123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "sami",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookId\": 2,\r\n  \"memberId\": 1,\r\n  \"userId\": 2,\r\n  \"notes\": \"Handled by librarian sami\"\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/borrow/2/return",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"borrow",
+								"2",
+								"return"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "sami123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "sami",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookId\": 2,\r\n  \"memberId\": 1,\r\n  \"userId\": 2,\r\n  \"notes\": \"Handled by librarian sami\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/borrow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"borrow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "member-transaction",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "sami123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "sami",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookId\": 2,\r\n  \"memberId\": 1,\r\n  \"userId\": 2,\r\n  \"notes\": \"Handled by librarian sami\"\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/borrow/member/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"borrow",
+								"member",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "member",
+			"item": [
+				{
+					"name": "add-member",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "sami123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "sami",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Esraa\",\r\n  \"email\": \"esraa@example.com\",\r\n  \"phone\": \"01012345678\",\r\n  \"address\": \"123 Library Street, Cairo\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/member",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -2,6 +2,8 @@ package com.esraa.librarymanagementsystem.service;
 
 import com.esraa.librarymanagementsystem.dto.UserDTO;
 import com.esraa.librarymanagementsystem.entity.User;
+import com.esraa.librarymanagementsystem.logging.ActivityLog;
+import com.esraa.librarymanagementsystem.repository.ActivityLogRepo;
 import com.esraa.librarymanagementsystem.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +22,11 @@ public class AdminService implements AdminServiceI{
     private UserRepo userRepo;
 
     @Autowired
+    private ActivityLogRepo activityLogRepo;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
+
 
 
     private ResponseEntity<List<UserDTO>> getListResponseEntity(List<User> users) {
@@ -60,6 +66,13 @@ public class AdminService implements AdminServiceI{
         user.setPassword(passwordEncoder.encode(user.getPassword())); // Encrypt password
         userRepo.save(user);
 
+        ActivityLog log = new ActivityLog();
+        log.setSystemUser(user);
+        log.setAction("User added");
+        log.setDescription("Admin add user."+ user.getRole().name());
+        activityLogRepo.save(log);
+
+
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -74,6 +87,13 @@ public class AdminService implements AdminServiceI{
 
             userRepo.save(usr);
 
+            ActivityLog log = new ActivityLog();
+            log.setSystemUser(usr);
+            log.setAction("User updated");
+            log.setDescription("Admin update user."+ user.getRole().name());
+            activityLogRepo.save(log);
+
+
             return ResponseEntity.ok(existingUser);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
@@ -85,6 +105,14 @@ public class AdminService implements AdminServiceI{
 
         if (usr.isPresent()) {
             userRepo.deleteById(id);
+
+            ActivityLog log = new ActivityLog();
+            log.setSystemUser(usr.get());
+            log.setAction("User deleted");
+            log.setDescription("Admin deleted user."+ usr.get().getRole().name());
+            activityLogRepo.save(log);
+
+
             return ResponseEntity.status(HttpStatus.OK).body("User deleted successfully");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");

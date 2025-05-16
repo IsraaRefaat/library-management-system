@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +30,8 @@ public class AuthorService implements AuthorServiceI{
 
     public ResponseEntity<?> addAuthor(Author author) {
         authorRepo.save(author);
+
+
         return new ResponseEntity<>(author,HttpStatus.OK);
     }
 
