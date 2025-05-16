@@ -1,5 +1,6 @@
 package com.esraa.librarymanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,5 +25,6 @@ public class Author {
     private String email;
     private String phone;
     @ManyToMany(mappedBy = "authors")
+    @JsonIgnore
     private Set<Book> books = new HashSet<>();
 }

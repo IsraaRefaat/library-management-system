@@ -1,5 +1,6 @@
 package com.esraa.librarymanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -62,9 +63,11 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
+    @JsonIgnore
     private Set<Author> authors = new HashSet<>();
 
     @OneToMany(mappedBy = "book")
+    @JsonIgnore
     private Set<BorrowTransaction> transactions = new HashSet<>();
 
 

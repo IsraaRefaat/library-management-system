@@ -1,5 +1,8 @@
 package com.esraa.librarymanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,9 +27,10 @@ public class Category {
 
     @ManyToOne
     @JoinColumn(name = "parent_id")
+    @JsonIgnore
     private Category parent;
 
-    // Subcategories
+
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
     private Set<Category> children = new HashSet<>();
 
@@ -46,6 +50,7 @@ public class Category {
     }
 
     @ManyToMany(mappedBy = "categories")
+    @JsonIgnore
     private Set<Book> books = new HashSet<>();
 
 

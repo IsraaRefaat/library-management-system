@@ -18,14 +18,14 @@ public class PublisherController {
 
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
-    @GetMapping("publisher")
+    @GetMapping
     public ResponseEntity<?> getPublishers() {
         return publisherService.getAllPublisher();
     }
 
 
     @PreAuthorize("hasRole('ADMIM') or hasRole('LIBRARIAN')")
-    @PostMapping("add")
+    @PostMapping
     public ResponseEntity<?> addPublisher(@RequestBody Publisher publisher) {
         return publisherService.addPublisher(publisher);
     }

@@ -1,9 +1,9 @@
 package com.esraa.librarymanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.Type;
 import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
@@ -39,6 +39,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "borrowByUser")
+    @JsonIgnore
     private List<BorrowTransaction> borrowTransactions;
 
     public enum UserRole {

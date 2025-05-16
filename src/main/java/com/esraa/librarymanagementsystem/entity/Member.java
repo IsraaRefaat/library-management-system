@@ -1,5 +1,7 @@
 package com.esraa.librarymanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,7 +20,16 @@ public class Member {
     private String email;
     private String phone;
     private String address;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private LocalDate joinDate;
+
+    @PrePersist
+    public void onJoin() {
+        this.joinDate = LocalDate.now();
+    }
+
     @OneToMany(mappedBy = "member")
+    @JsonIgnore
     private List<BorrowTransaction> borrowTransactions;
 }

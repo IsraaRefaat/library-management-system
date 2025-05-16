@@ -19,7 +19,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasRole('ADMIM')")
-    @GetMapping("admin")
+    @GetMapping
     public ResponseEntity<List<UserDTO>> getAdmins() {
         return adminService.getAdmins();
     }
