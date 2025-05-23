@@ -136,7 +136,7 @@ postman/library-management-system.postman_collection.json
 ## 📧 Contact
 
 Developed by **Esraa Refaat Kassem**
-📩 Email: [erefaat591@gmail.com](mailto:erefaat591@gmail.com)
+📩 Email: [erefaat591@gmail.com](mailto:esraa.refaat.kassem@gmail.com)
 🔗 LinkedIn: [linkedin.com/in/esraa-refaat-kassem](https://www.linkedin.com/in/esraa-refaat-kassem/)
 
 
